@@ -1,0 +1,57 @@
+@font-face {
+    font-family: 'NT_Josefine';
+    src: url('/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/assets/fonts/NT_Josefine.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+body {
+    --h1: #F2F2F2;
+    --h2: #182628;
+    --h3: #3B945e;
+    --st: #57BA98;
+    --bg: #65CCB8;
+    margin: 0px;
+}
+
+.Navbar {
+    display: flex;
+    background-color: var(--bg);
+}
+
+.logo {
+    font-family: NT_Josefine;
+    color: var(--h1);
+    font-size: 20px;
+    padding-left: 2%;
+}
+
+.restStuff{
+    flex: 2;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.NavEnd{
+    display: flex;
+    min-width: 250px;
+    justify-content: flex-end;
+    padding-top: 32px;
+}
+
+.loginBtn {
+    background-color: var(--h3);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    color: var(--h2);
+    width: 50%;
+    height: 60%;
+    border: none;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
