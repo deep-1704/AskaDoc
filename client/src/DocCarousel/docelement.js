@@ -1,10 +1,11 @@
 import "./style.css";
-export default function docelement(imgsrc,name,spec){
+function Docelement({imgsrc,name,spec}){
     return(
-        <div className="container">
-            <div className="imgContainer"><img src={imgsrc} alt={name}/></div>
-            <div></div>
-            <div></div>
+        <div className="cardcontainer">
+            <div className="imgContainer"><img className="docImage" src={imgsrc} alt={name}/></div>
+            <div className="docName"><strong>{name}</strong></div>
+            <div className="docSpec">{spec}</div>
         </div>
     )
 }
+export default Docelement;

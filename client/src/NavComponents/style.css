@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'NT_Josefine';
-    src: url('/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/assets/fonts/NT_Josefine.otf') format('opentype');
+    src: url('/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/fonts/NT_Josefine.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -9,10 +9,10 @@
 
 body {
     --h1: #F2F2F2;
-    --h2: #182628;
+    --bg: #182628;
     --h3: #3B945e;
     --st: #57BA98;
-    --bg: #65CCB8;
+    --h2: #65CCB8;
     margin: 0px;
 }
 
@@ -45,7 +45,7 @@ body {
     background-color: var(--h3);
     font-family: 'Ubuntu', sans-serif;
     font-size: 20px;
-    color: var(--h2);
+    color: var(--h1);
     width: 50%;
     height: 60%;
     border: none;

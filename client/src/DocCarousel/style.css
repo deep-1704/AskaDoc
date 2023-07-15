@@ -1,6 +1,30 @@
-.container{
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;500&display=swap');
+.cardcontainer{
     height: 300px;
+    width: 205px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .imgContainer{
-    height: 60%;
+    height: 70%;
+    width:100%;
+    overflow: hidden;
+    border-radius: 25px;
+}
+.docImage{
+    width: 100%;
+}
+.docName{
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    color: var(--h1);
+}
+.docSpec{
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: var(--st);
 }

@@ -1,25 +1,39 @@
 @font-face {
-  font-family: 'comfortaa_light';
-  src: url('/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/assets/fonts/comfortaa.light.ttf') format('opentype');
+  font-family: 'MikeSansFree';
+  src: url('/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/fonts/MikeSansFree-MVDLP.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@font-face {
+  font-family: 'comfortaa_light';
+  src: url('/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/fonts/comfortaa.light.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 body {
   --h1: #F2F2F2;
-  --h2: #182628;
+  --bg: #182628;
   --h3: #3B945e;
   --st: #57BA98;
-  --bg: #65CCB8;
+  --h2: #65CCB8;
   background-color: var(--bg);
   margin: 0px;
 }
 .quote{
   text-align: center;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 30px;
-  margin-top: 60px;
-  margin-bottom: 60px;
+  font-family: MikeSansFree;
+  font-size: 45px;
+  letter-spacing: 4px;
+  margin-top: 30px;
+  margin-bottom: 50px;
   color: var(--h2);
+}
+.carouselMoveBtn{
+  height: 100%;
+  color: var(--h1);
+  background-color: var(--bg);
+  border: none;
+  font-size: 30px;
 }
