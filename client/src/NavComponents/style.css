@@ -37,7 +37,6 @@ body {
 .NavEnd{
     display: flex;
     min-width: 250px;
-    justify-content: flex-end;
     padding-top: 32px;
 }
 
@@ -54,4 +53,15 @@ body {
     padding-bottom: 10px;
     margin-left: 10px;
     margin-right: 10px;
+}
+.usrProfilebtn{
+    border: 1px solid var(--h2);
+    border-radius: 20px;
+    width: 205px;
+    background-color: var(--bg);
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+    word-spacing: 5px;
+    color: var(--h1);
 }
