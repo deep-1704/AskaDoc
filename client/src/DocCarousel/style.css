@@ -10,7 +10,8 @@
     height: 70%;
     width:100%;
     overflow: hidden;
-    border-radius: 25px;
+    border-radius: 70px;
+    border: 5px solid var(--st);
 }
 .docImage{
     width: 100%;
