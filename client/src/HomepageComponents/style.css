@@ -93,6 +93,14 @@ li{
     background-color: var(--h1);
     display: flex;
     justify-content: space-between;
+    animation-name: listAnimation;
+    animation-duration: 0.5s;
+    transition: 0.5s;
+}
+.category-list-item:hover{
+    background-color: #d0d0d0;
+    transition: 0.3s;
+    transform: scale(1.03);
 }
 .profile-img{
     width: 50px;
@@ -155,4 +163,14 @@ li{
     margin-left: 1%;
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
+}
+@keyframes listAnimation {
+    from{
+        /* transform: ; */
+        opacity: 0;
+    }
+    to{
+        /* transform: scale(1); */
+        opacity: 1;
+    }
 }
