@@ -23,6 +23,12 @@ body {
     background-color: var(--bg);
     margin: 0px;
 }
+ul{
+    list-style: none;
+}
+li{
+    width: 100%;
+}
 
 .catTitle {
     text-align: center;
@@ -73,4 +79,80 @@ body {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
+}
+.render-list{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.category-list-item{
+    width: 100%;
+    height: fit-content;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: var(--h1);
+    display: flex;
+    justify-content: space-between;
+}
+.profile-img{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 25px;
+}
+.profile-name-spec{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 185px;
+}
+@media screen and (max-width: 400px){
+    .profile-name-spec{
+        display: block;
+    }
+}
+.name{
+    color: var(--bg);
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: 17px;
+}
+.spec{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    color: var(--st);
+    font-size: 13px;
+    margin-top: 5px;
+}
+.fees{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    color: var(--bg);
+    font-size: 19px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.rep{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    color: var(--h3);
+    font-size: 19px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.sort-sec{
+    margin-left: 3%;
+    display: flex;
+    align-items: center;
+}
+.sort-title{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    color: var(--h1);
+    font-size: 30px;
+}
+.sort-select{
+    margin-left: 1%;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
 }
