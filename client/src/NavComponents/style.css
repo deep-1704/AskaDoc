@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'NT_Josefine';
-    src: url('/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/fonts/NT_Josefine.otf') format('opentype');
+    src: url('../assets/fonts/NT_Josefine.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }

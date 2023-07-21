@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'MikeSansFree';
-    src: url('/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/fonts/MikeSansFree-MVDLP.ttf') format('opentype');
+    src: url('../assets/fonts/MikeSansFree-MVDLP.ttf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'comfortaa_light';
-    src: url('/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/fonts/comfortaa.light.ttf') format('opentype');
+    src: url('../assets/fonts/comfortaa.light.ttf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
