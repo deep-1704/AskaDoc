@@ -37,7 +37,8 @@ body {
 .NavEnd{
     display: flex;
     min-width: 250px;
-    padding-top: 32px;
+    /* padding-top: 32px; */
+    align-items: center;
 }
 
 .loginBtn {
@@ -46,7 +47,7 @@ body {
     font-size: 20px;
     color: var(--h1);
     width: 50%;
-    height: 60%;
+    height: 45%;
     border: none;
     border-radius: 10px;
     padding-top: 10px;
@@ -57,7 +58,8 @@ body {
 .usrProfilebtn{
     border: 1px solid var(--h2);
     border-radius: 20px;
-    width: 205px;
+    width: 165px;
+    height: 48%;
     background-color: var(--bg);
     font-family: 'Ubuntu', sans-serif;
     font-size: 25px;

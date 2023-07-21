@@ -101,6 +101,7 @@ li{
     background-color: #d0d0d0;
     transition: 0.3s;
     transform: scale(1.03);
+    cursor: pointer;
 }
 .profile-img{
     width: 50px;

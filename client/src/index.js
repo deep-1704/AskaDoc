@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 // import LP from './Landing_page';
-import Homepage from './Hompage';
+import Profile from './profile';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     {/* <LP /> */}
-    <Homepage />
+    <Profile username="Deep Prajapati"/>
   </React.StrictMode>
 );
