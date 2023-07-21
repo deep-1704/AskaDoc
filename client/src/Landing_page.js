@@ -3,11 +3,11 @@ import Navbar from './NavComponents/Navbar';
 import Doccarousel from './DocCarousel/docCarousel';
 import Docelement from './DocCarousel/docelement';
 import { useEffect } from 'react';
-import img1 from "/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/online-medical-consultation-male-svgrepo-com.svg";
-import step1img from "/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/account-svgrepo-com.svg";
-import step2img from "/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/doctor-svgrepo-com.svg";
-import step3img from "/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/chat-round-dots-svgrepo-com.svg";
-import arrowRight from "/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/arrow-right-svgrepo-com.svg";
+import img1 from "./assets/images/miscellaneous/online-medical-consultation-male-svgrepo-com.svg";
+import step1img from "./assets/images/miscellaneous/account-svgrepo-com.svg";
+import step2img from "./assets/images/miscellaneous/doctor-svgrepo-com.svg";
+import step3img from "./assets/images/miscellaneous/chat-round-dots-svgrepo-com.svg";
+import arrowRight from "./assets/images/miscellaneous/arrow-right-svgrepo-com.svg";
 
 function LP() {
   useEffect(() => {

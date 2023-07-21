@@ -1,8 +1,8 @@
 import Navbar from "./NavComponents/Navbar";
 import "./LoginComponents/loginStyle.css";
-import illus from "./assets/images/Login-bro.svg";
-import pCheck from "./assets/images/person-blond-hair-svgrepo-com.svg";
-import dCheck from "./assets/images/health-worker-svgrepo-com.svg";
+import illus from "./assets/images/miscellaneous/Login-bro.svg";
+import pCheck from "./assets/images/miscellaneous/person-blond-hair-svgrepo-com.svg";
+import dCheck from "./assets/images/miscellaneous/health-worker-svgrepo-com.svg";
 import { useState } from "react";
 function Login() {
     let [user, setUser] = useState(NaN);

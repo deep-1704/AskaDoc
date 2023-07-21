@@ -1,5 +1,5 @@
 import Navbar from "./NavComponents/Navbar";
-// import CatagorySec from "./HomepageComponents/CatagorySec";
+import CatagorySec from "./HomepageComponents/CatagorySec";
 import CategoryList from "./HomepageComponents/CategoryList";
 import Select from 'react-select';
 import { useEffect, useState } from "react";
@@ -95,9 +95,9 @@ function Homepage() {
         <>
             <Navbar />
             <div className="catTitle">Choose your Consultant</div>
-            {/* <CatagorySec /> */}
-            <SortOptions setSortBasis={setSortBasis}/>
-            <CategoryList DoctorsList={finalArr} />
+            <CatagorySec />
+            {/* <SortOptions setSortBasis={setSortBasis}/>
+            <CategoryList DoctorsList={finalArr} /> */}
         </>
     )
 }

@@ -1,10 +1,10 @@
 import "./style.css";
 import DoctorSpec from "./DoctorSpec";
-import qualification_icon from "../assets/images/qualification-icon.svg";
-import experience_icon from "../assets/images/experience-icon.svg";
-import language_icon from "../assets/images/language-icon.svg";
-import phone_icon from "../assets/images/phone-icon.svg";
-import email_icon from "../assets/images/email-icon.svg";
+import qualification_icon from "../assets/images/icons/qualification-icon.svg";
+import experience_icon from "../assets/images/icons/experience-icon.svg";
+import language_icon from "../assets/images/icons/language-icon.svg";
+import phone_icon from "../assets/images/icons/phone-icon.svg";
+import email_icon from "../assets/images/icons/email-icon.svg";
 
 function ProfileComplete({ username }) {
 

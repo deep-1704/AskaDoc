@@ -1,5 +1,5 @@
 import "./style.css";
-import defaultImg from "../assets/images/defaultProfile.svg";
+import defaultImg from "../assets/images/miscellaneous/defaultProfile.svg";
 import PhoneInput from 'react-phone-number-input/input';
 import { useState } from "react";
 

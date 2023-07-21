@@ -5,47 +5,47 @@ import "./style.css";
 function Doccarousel() {
     const carContent = [
         {
-            imgsrc: require("/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/deep_icpc_1.jpeg"),
+            imgsrc: require("../assets/images/deep_icpc_1.jpeg"),
             name: "Deep Prajapati",
             spec: "Spec-1"
         },
         {
-            imgsrc: require("/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/deep_icpc_1.jpeg"),
+            imgsrc: require("../assets/images/deep_icpc_1.jpeg"),
             name: "Deep Prajapati",
             spec: "Spec-2"
         },
         {
-            imgsrc: require("/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/deep_icpc_1.jpeg"),
+            imgsrc: require("../assets/images/deep_icpc_1.jpeg"),
             name: "Deep Prajapati",
             spec: "Spec-3"
         },
         {
-            imgsrc: require("/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/deep_icpc_1.jpeg"),
+            imgsrc: require("../assets/images/deep_icpc_1.jpeg"),
             name: "Deep Prajapati",
             spec: "Spec-4"
         },
         {
-            imgsrc: require("/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/deep_icpc_1.jpeg"),
+            imgsrc: require("../assets/images/deep_icpc_1.jpeg"),
             name: "Deep Prajapati",
             spec: "Spec-4"
         },
         {
-            imgsrc: require("/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/deep_icpc_1.jpeg"),
+            imgsrc: require("../assets/images/deep_icpc_1.jpeg"),
             name: "Deep Prajapati",
             spec: "Spec-4"
         },
         {
-            imgsrc: require("/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/deep_icpc_1.jpeg"),
+            imgsrc: require("../assets/images/deep_icpc_1.jpeg"),
             name: "Deep Prajapati",
             spec: "Spec-4"
         },
         {
-            imgsrc: require("/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/deep_icpc_1.jpeg"),
+            imgsrc: require("../assets/images/deep_icpc_1.jpeg"),
             name: "Deep Prajapati",
             spec: "Spec-4"
         },
         {
-            imgsrc: require("/Users/deepprajapati/Desktop/Lets_Program/webd/AskaDoc/client/src/assets/images/deep_icpc_1.jpeg"),
+            imgsrc: require("../assets/images/deep_icpc_1.jpeg"),
             name: "Deep Prajapati",
             spec: "Spec-5"
         }
