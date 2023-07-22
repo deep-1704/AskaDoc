@@ -2,6 +2,7 @@ import styles from "./style.module.css";
 import CatListItem from "./CategoryListItem";
 import Select from 'react-select';
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 function SortOptions({ setSortBasis }) {
     const option = [
@@ -27,7 +28,8 @@ function SortOptions({ setSortBasis }) {
 }
 
 
-function CategoryList({ category }) {
+function CategoryList() {
+    const category = useParams();
     let arr = [
         {
             Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),

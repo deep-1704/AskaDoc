@@ -1,6 +1,5 @@
+import { Outlet } from "react-router-dom";
 import Navbar from "../NavComponents/Navbar";
-import CatagorySec from "./CatagorySec";
-import CategoryList from "./CategoryList";
 import styles from "./style.module.css";
 
 function Homepage() {
@@ -8,8 +7,7 @@ function Homepage() {
         <>
             <Navbar />
             <div className={styles.catTitle}>Choose your Consultant</div>
-            {/* <CatagorySec /> */}
-            <CategoryList category="abc" />
+            <Outlet />
         </>
     )
 }
