@@ -1,6 +1,5 @@
 import Docelement from './docelement.js';
 import { Carousel } from '@trendyol-js/react-carousel';
-import "./style.css";
 
 function Doccarousel() {
     const carContent = [

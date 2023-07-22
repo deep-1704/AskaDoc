@@ -1,4 +1,4 @@
-import "./style.css";
+import styles from  "./style.module.css";
 import defaultImg from "../assets/images/miscellaneous/defaultProfile.svg";
 import PhoneInput from 'react-phone-number-input/input';
 import { useState } from "react";
@@ -10,39 +10,39 @@ function ProfileIncomplete({ username }) {
     }
     return (
         <>
-            <div className="pic-name-spec">
-                <div className="pic"><img src={pImage} alt="Default" style={{ height: "100%" }} /></div>
-                <div className="name-spec">
-                    <div className="name">{username}</div>
-                    <div className="spec"></div>
+            <div className={styles.picnamespec}>
+                <div className={styles.pic}><img src={pImage} alt="Default" style={{ height: "100%" }} /></div>
+                <div className={styles.namespec}>
+                    <div className={styles.name}>{username}</div>
+                    <div className={styles.spec}></div>
                 </div>
             </div>
-            <form className="profile-form">
-                <label className="profile-input-fields">
+            <form className={styles.profileform}>
+                <label className={styles.profileinputfields}>
                     Upload Profile Picture<br /> 
                     <input type="file" name="profilepic" accept="image/*" onChange={updateImage}/>
                 </label><br />
-                <label className="profile-input-fields">
+                <label className={styles.profileinputfields}>
                     Specialization<br /> 
                     <input type="text" name="spec"/>
                 </label><br />
-                <label className="profile-input-fields">
+                <label className={styles.profileinputfields}>
                     Qualification<br />
                     <input type="text" name="qualification"/>
                 </label><br />
-                <label className="profile-input-fields">
+                <label className={styles.profileinputfields}>
                     Years of experience<br />
                     <input type="number" name="experience"/>
                 </label><br />
-                <label className="profile-input-fields">
+                <label className={styles.profileinputfields}>
                     Languages(put ',' if more than 1)<br />
                     <input type="text" name="languages"/>
                 </label><br />
-                <label className="profile-input-fields">
+                <label className={styles.profileinputfields}>
                     Phone no.<br />
                     <PhoneInput country="Ind" name="phonenumber"/>
                 </label><br />
-                <label className="profile-input-fields">
+                <label className={styles.profileinputfields}>
                     E-mail<br />
                     <input type="email" name="email"/>
                 </label>

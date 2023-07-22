@@ -1,18 +1,18 @@
-import "./style.css";
-import heart from "../assets/images/heart-svgrepo-com.svg"
+import styles from "./style.module.css";
+import heart from "../assets/images/miscellaneous/heart-svgrepo-com.svg"
 
 function CatListItem({ Pimgsrc, name, spec, fees, rep }) {
     return (
-        <div className="category-list-item">
-            <div className="profile-name-spec">
-                <div className="profile-img"><img src={Pimgsrc} alt="Profile-pic" style={{ width: "100%" }} /></div>
-                <div className="name-spec">
-                    <div className="name">{name}</div>
-                    <div className="spec">{spec}</div>
+        <div className={styles.categorylistitem}>
+            <div className={styles.profilenamespec}>
+                <div className={styles.profileimg}><img src={Pimgsrc} alt="Profile-pic" style={{ width: "100%" }} /></div>
+                <div className={styles.name-spec}>
+                    <div className={styles.name}>{name}</div>
+                    <div className={styles.spec}>{spec}</div>
                 </div>
             </div>
-            <div className="fees">₹{fees}/consult</div>
-            <div className="rep"><img src={heart} alt="heart" style={{ width: "16px" }} /> {nFormatter(rep,0)}</div>
+            <div className={styles.fees}>₹{fees}/consult</div>
+            <div className={styles.rep}><img src={heart} alt="heart" style={{ width: "16px" }} /> {nFormatter(rep,0)}</div>
         </div>
     );
 }

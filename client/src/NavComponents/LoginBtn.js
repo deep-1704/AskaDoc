@@ -1,7 +1,7 @@
-import './style.css';
+import styles from  './style.module.css';
 
 export default function LoginBtn(){
     return (
-        <button className='loginBtn'>Login</button>
+        <button className={styles.loginBtn}>Login</button>
     )
 }

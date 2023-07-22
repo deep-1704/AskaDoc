@@ -1,12 +1,12 @@
 @font-face {
   font-family: 'MikeSansFree';
-  src: url('./assets/fonts/MikeSansFree-MVDLP.ttf') format('opentype');
+  src: url('../assets/fonts/MikeSansFree-MVDLP.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: 'comfortaa_light';
-  src: url('./assets/fonts/comfortaa.light.ttf') format('opentype');
+  src: url('../assets/fonts/comfortaa.light.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -37,7 +37,7 @@ body {
   font-size: 30px;
   font-family: 'Ubuntu', sans-serif;
 }
-.intro-illus{
+.introillus{
   display: flex;
   margin-top: 70px;
   height: fit-content;
@@ -57,7 +57,7 @@ body {
   flex-direction: column;
   justify-content: space-evenly;
 }
-.intro-title{
+.introtitle{
   font-family: 'Ubuntu', sans-serif;
   font-weight: 500;
   font-size: 30px;
@@ -65,7 +65,7 @@ body {
   line-height: 40px;
   color: var(--h2);
 }
-.intro-txt{
+.introtxt{
   margin-top: 20px;
   padding-right: 50px;
   letter-spacing: 1px;
@@ -83,7 +83,7 @@ body {
   width: 100%;
   height: 390px;
 }
-.into-list-item{
+.intolistitem{
   font-family: 'Ubuntu', sans-serif;
   font-weight: 500;
   color: var(--h2);
@@ -98,7 +98,7 @@ body {
   margin-top: 70px;
   height: 470px;
 }
-.process-title{
+.processtitle{
   text-align: center;
   font-family: MikeSansFree;
   font-size: 45px;

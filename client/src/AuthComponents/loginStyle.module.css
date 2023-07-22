@@ -10,7 +10,7 @@ a{
     text-decoration: none;
 }
 body {
-    background-color: var(--bg);
+    background-color: var(--bg) !important;
 }
 
 .container {
@@ -62,9 +62,6 @@ body {
     height: 10px;
     border: 1px solid black;
     border-radius: 10px;
-}
-.select{
-    background-color: var(--h3);
 }
 .formField{
     margin: 50px 0 25px 0;

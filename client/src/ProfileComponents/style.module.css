@@ -20,18 +20,18 @@ body {
     --h3: #3B945e;
     --st: #57BA98;
     --h2: #65CCB8;
-    background-color: var(--h1);
     margin: 0px;
 }
-.profile-chat-container{
+.profilechatcontainer{
     display: flex;
+    background-color: var(--h1);
 }
-.profile-sec-container{
+.profileseccontainer{
     width: 575px;
     border-right: 1px solid black;
     margin-top: 10px;
 }
-.pic-name-spec{
+.picnamespec{
     display: flex;
     justify-content: center;
 }
@@ -43,7 +43,7 @@ body {
     overflow: hidden;
     border-radius: 100px;
 }
-.name-spec{
+.namespec{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -63,14 +63,14 @@ body {
     color: var(--st);
     margin-top: 10px;
 }
-.profile-form{
+.profileform{
     width: fit-content;
     margin: auto;
     display: flex;
     flex-direction: column;
     margin-top: 20px;
 }
-.profile-input-fields{
+.profileinputfields{
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     color: var(--bg);
@@ -80,11 +80,11 @@ body {
     height: 100px;
     background-color: var(--bg);
 }
-.spec-title{
+.spectitle{
     display: flex;
     height: 60px;
 }
-.title-content{
+.titlecontent{
     font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
     font-size: 20px;
@@ -93,14 +93,14 @@ body {
     margin-left: 8px;
     color: var(--h3);
 }
-.spec-content{
+.speccontent{
     font-family: 'Ubuntu', sans-serif;
     font-weight: 300;
     color: var(--st);
     font-size: 20px;
     margin-left: 68px;
 }
-.profile-title{
+.profiletitle{
     font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
     font-size: 40px;

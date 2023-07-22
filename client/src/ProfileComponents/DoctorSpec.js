@@ -1,12 +1,12 @@
-import "./style.css";
+import styles from "./style.module.css";
 function DoctorSpec({ field,icon,value }) {
     return (
-        <div className="DoctorSpec">
-            <div className="spec-title">
-                <div className="title-icon"><img src={icon} alt="icon" style={{height:"100%"}}/></div>
-                <div className="title-content">{field}</div>
+        <div className={styles.DoctorSpec}>
+            <div className={styles.spectitle}>
+                <div className={styles.titleicon}><img src={icon} alt="icon" style={{height:"100%"}}/></div>
+                <div className={styles.titlecontent}>{field}</div>
             </div>
-            <div className="spec-content">{value}</div>
+            <div className={styles.speccontent}>{value}</div>
         </div>
     );
 }

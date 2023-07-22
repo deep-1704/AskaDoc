@@ -1,8 +1,8 @@
-import './style.css';
+import styles from './style.module.css';
 
 function UserProfileBtn({username}){
     return(
-        <button className='usrProfilebtn'>Hii {username}</button>
+        <button className={styles.usrProfilebtn}>Hii {username}</button>
     );
 }
 export default UserProfileBtn;

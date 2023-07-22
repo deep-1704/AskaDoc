@@ -1,9 +1,9 @@
-import "./style.css";
+import styles from  "./style.module.css";
 import ProfileIncomplete from "./profile_incomplete";
 import ProfileComplete from "./profiole_complete";
 function ProfileSec({username}){
     return(
-        <div className="profile-sec-container">
+        <div className={styles.profileseccontainer}>
             {true?<ProfileComplete username={username}/>:<ProfileIncomplete username={username} />}
         </div>
     )
