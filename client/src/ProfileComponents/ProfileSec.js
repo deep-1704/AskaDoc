@@ -4,7 +4,7 @@ import ProfileComplete from "./profiole_complete";
 function ProfileSec({username}){
     return(
         <div className={styles.profileseccontainer}>
-            {true?<ProfileComplete username={username}/>:<ProfileIncomplete username={username} />}
+            {false?<ProfileComplete username={username}/>:<ProfileIncomplete username={username} />}
         </div>
     )
 }

@@ -53,7 +53,7 @@ function Signup() {
                         </div>
                         <div className={styles.submitBtndiv}><button className={styles.submitBtn} onClick={submit}>Signup</button></div>
                     </div>
-                    <div className={styles.signinOption}>Already a member? <a href="#">Login</a></div>
+                    <div className={styles.signinOption}>Already a member? <a href="./login">Login</a></div>
                 </div>
             </div>
         </>

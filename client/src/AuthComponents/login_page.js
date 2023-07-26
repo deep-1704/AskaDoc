@@ -53,7 +53,7 @@ function Login() {
                         </div>
                         <div className={styles.submitBtndiv}><button className={styles.submitBtn} onClick={show}>Login</button></div>
                     </div>
-                    <div className={styles.signinOption}>Don't have an account? <a href="#">Signup</a></div>
+                    <div className={styles.signinOption}>Don't have an account? <a href="./signup">Signup</a></div>
                 </div>
             </div>
         </>
