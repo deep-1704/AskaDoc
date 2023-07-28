@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Docelement from './docelement.js';
 import { Carousel } from '@trendyol-js/react-carousel';
 
@@ -49,13 +50,15 @@ function Doccarousel() {
             spec: "Spec-5"
         }
     ];
+
+    
     const content = carContent.map((ele)=>{
         return <Docelement imgsrc={ele.imgsrc} name={ele.name} spec={ele.spec} />
     })
     return (
-        <Carousel show={4.5} slide={2} swiping={true}>
-            {content}
-        </Carousel>
+        <>
+        {content?<Carousel show={4.5} slide={2} swiping={true}>{content}</Carousel>:<></>}
+        </>
     );
 }
 export default Doccarousel;
