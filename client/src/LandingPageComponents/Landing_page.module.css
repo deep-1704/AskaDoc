@@ -43,7 +43,7 @@ body {
   height: fit-content;
 }
 @media screen and (max-width: 1096px){
-  .intro-illus{
+  .introillus{
     flex-direction: column;
     align-items: center;
   }

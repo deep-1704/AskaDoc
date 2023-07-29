@@ -1,13 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-var carouselinfoRouter = require('./routes/carouselinfo');
-var usersRouter = require('./routes/users');
+const carouselinfoRouter = require('./routes/carouselinfo');
+const signupRouter = require('./routes/signup');
 
-var app = express();
+
+const app = express();
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
@@ -22,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.use('/getCarouselInfo', carouselinfoRouter);
-app.use('/users', usersRouter);
+app.use('/signup',signupRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

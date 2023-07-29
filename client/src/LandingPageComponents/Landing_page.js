@@ -10,15 +10,15 @@ import step3img from "../assets/images/miscellaneous/chat-round-dots-svgrepo-com
 import arrowRight from "../assets/images/miscellaneous/arrow-right-svgrepo-com.svg";
 
 function LP() {
-  useEffect(() => {
-    let leftBtn = document.getElementsByClassName("styles-module_carousel-base__3keqD")[0].children[0].children[0];
-    let rightBtn = document.getElementsByClassName("styles-module_carousel-base__3keqD")[0].children[2].children[0];
+  // useEffect(() => {
+  //   let leftBtn = document.getElementsByClassName("styles-module_carousel-base__3keqD")[0].children[0].children[0];
+  //   let rightBtn = document.getElementsByClassName("styles-module_carousel-base__3keqD")[0].children[2].children[0];
 
-    leftBtn.innerHTML = "<";
-    rightBtn.innerHTML = ">";
-    leftBtn.classList.add("carouselMoveBtn");
-    rightBtn.classList.add("carouselMoveBtn");
-  }, [])
+  //   leftBtn.innerHTML = "<";
+  //   rightBtn.innerHTML = ">";
+  //   leftBtn.classList.add("carouselMoveBtn");
+  //   rightBtn.classList.add("carouselMoveBtn");
+  // }, [])
   return (
     <>
       <Navbar />

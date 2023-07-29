@@ -6,6 +6,8 @@ import dCheck from "../assets/images/miscellaneous/health-worker-svgrepo-com.svg
 import { useState } from "react";
 function Signup() {
     let [user, setUser] = useState(NaN);
+    let [username,setUsername] = useState(null);
+    let [password,setPassword] = useState(null);
 
     function handlePClick(e) {
         let e1 = document.getElementById("patientCheckBox");
@@ -21,8 +23,33 @@ function Signup() {
         e1.style = "background-color: var(--h1)";
         setUser("doctor");
     }
-    function submit() {
+    async function submit() {
+        if(await isValid(user,username,password)){
 
+        }
+    }
+    async function isValid(user, username, password){
+        if(!(user && username && password)){
+            alert("Kindly ensure all fields are properly filled before proceeding.");
+            return false;
+        }
+        let valid = await checkDuplicate(user,username,password);
+        if(valid){
+            alert("User already exist. Please enter a different username.");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    async function checkDuplicate(user, username, password){
+        return (await fetch("http://localhost:4000/signup/checkDuplicate",{
+            method:'POST',
+            headers:{"Content-Type": "application/json"},
+            body: JSON.stringify({"user":user,"username":username,"password":password})
+        }).then(res => {
+            return res.json();
+        }));
     }
 
     return (
@@ -45,11 +72,11 @@ function Signup() {
                         </div>
                         <div className={styles.formField}>
                             <div className={styles.formFieldTitle}>Username</div>
-                            <input type="text" name="Username" className={styles.InputField} />
+                            <input type="text" id="Username" className={styles.InputField} onChange={()=>setUsername(document.getElementById('Username').value)}/>
                         </div>
                         <div className={styles.formField}>
                             <div className={styles.formFieldTitle}>Password</div>
-                            <input type="password" name="Password" className={styles.InputField} />
+                            <input type="password" id="Password" className={styles.InputField} onChange={()=>setPassword(document.getElementById('Password').value)}/>
                         </div>
                         <div className={styles.submitBtndiv}><button className={styles.submitBtn} onClick={submit}>Signup</button></div>
                     </div>
