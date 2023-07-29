@@ -6,8 +6,8 @@ import dCheck from "../assets/images/miscellaneous/health-worker-svgrepo-com.svg
 import { useState } from "react";
 function Signup() {
     let [user, setUser] = useState(NaN);
-    let [username,setUsername] = useState(null);
-    let [password,setPassword] = useState(null);
+    let [username, setUsername] = useState(null);
+    let [password, setPassword] = useState(null);
 
     function handlePClick(e) {
         let e1 = document.getElementById("patientCheckBox");
@@ -24,29 +24,36 @@ function Signup() {
         setUser("doctor");
     }
     async function submit() {
-        if(await isValid(user,username,password)){
-
+        if (await isValid(user, username, password)) {
+            if(user === 'doctor'){
+                alert('Signed up successfully. Please complete your profile in order to get listed.');
+            }
+            await fetch("http://localhost:4000/signup",{
+                method:'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ "user": user, "username": username, "password": password })
+            })
+            window.location.href = "http://localhost:3000/home/catagories";
         }
     }
-    async function isValid(user, username, password){
-        if(!(user && username && password)){
+    async function isValid(user, username, password) {
+        if (!(user && username && password)) {
             alert("Kindly ensure all fields are properly filled before proceeding.");
             return false;
         }
-        let valid = await checkDuplicate(user,username,password);
-        if(valid){
+        if (await checkDuplicate(user, username, password)) {
             alert("User already exist. Please enter a different username.");
             return false;
         }
-        else{
+        else {
             return true;
         }
     }
-    async function checkDuplicate(user, username, password){
-        return (await fetch("http://localhost:4000/signup/checkDuplicate",{
-            method:'POST',
-            headers:{"Content-Type": "application/json"},
-            body: JSON.stringify({"user":user,"username":username,"password":password})
+    async function checkDuplicate(user, username, password) {
+        return (await fetch("http://localhost:4000/signup/checkDuplicate", {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ "user": user, "username": username, "password": password })
         }).then(res => {
             return res.json();
         }));
@@ -72,11 +79,11 @@ function Signup() {
                         </div>
                         <div className={styles.formField}>
                             <div className={styles.formFieldTitle}>Username</div>
-                            <input type="text" id="Username" className={styles.InputField} onChange={()=>setUsername(document.getElementById('Username').value)}/>
+                            <input type="text" id="Username" className={styles.InputField} onChange={() => setUsername(document.getElementById('Username').value)} />
                         </div>
                         <div className={styles.formField}>
                             <div className={styles.formFieldTitle}>Password</div>
-                            <input type="password" id="Password" className={styles.InputField} onChange={()=>setPassword(document.getElementById('Password').value)}/>
+                            <input type="password" id="Password" className={styles.InputField} onChange={() => setPassword(document.getElementById('Password').value)} />
                         </div>
                         <div className={styles.submitBtndiv}><button className={styles.submitBtn} onClick={submit}>Signup</button></div>
                     </div>
