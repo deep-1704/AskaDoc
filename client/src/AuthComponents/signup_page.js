@@ -4,8 +4,9 @@ import illus from "../assets/images/miscellaneous/Signup-amico.svg";
 import pCheck from "../assets/images/miscellaneous/person-blond-hair-svgrepo-com.svg";
 import dCheck from "../assets/images/miscellaneous/health-worker-svgrepo-com.svg";
 import { useState } from "react";
+
 function Signup() {
-    let [user, setUser] = useState(NaN);
+    let [user, setUser] = useState(null);
     let [username, setUsername] = useState(null);
     let [password, setPassword] = useState(null);
 
@@ -25,14 +26,22 @@ function Signup() {
     }
     async function submit() {
         if (await isValid(user, username, password)) {
-            if(user === 'doctor'){
+            if (user === 'doctor') {
                 alert('Signed up successfully. Please complete your profile in order to get listed.');
             }
-            await fetch("http://localhost:4000/signup",{
-                method:'POST',
+            await fetch("http://localhost:4000/signup", {
+                method: 'POST',
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ "user": user, "username": username, "password": password })
             })
+            let response = await fetch('http://localhost:4000/login', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username })
+            }).then(res => {
+                return res.json();
+            })
+            localStorage.setItem('accessToken', response.accessToken);
             window.location.href = "http://localhost:3000/home/catagories";
         }
     }
@@ -45,9 +54,7 @@ function Signup() {
             alert("User already exist. Please enter a different username.");
             return false;
         }
-        else {
-            return true;
-        }
+        return true;
     }
     async function checkDuplicate(user, username, password) {
         return (await fetch("http://localhost:4000/signup/checkDuplicate", {
@@ -79,11 +86,11 @@ function Signup() {
                         </div>
                         <div className={styles.formField}>
                             <div className={styles.formFieldTitle}>Username</div>
-                            <input type="text" id="Username" className={styles.InputField} onChange={() => setUsername(document.getElementById('Username').value)} />
+                            <input type="text" id="Username" className={styles.InputField} onChange={(e) => setUsername(e.target.value)} />
                         </div>
                         <div className={styles.formField}>
                             <div className={styles.formFieldTitle}>Password</div>
-                            <input type="password" id="Password" className={styles.InputField} onChange={() => setPassword(document.getElementById('Password').value)} />
+                            <input type="password" id="Password" className={styles.InputField} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div className={styles.submitBtndiv}><button className={styles.submitBtn} onClick={submit}>Signup</button></div>
                     </div>

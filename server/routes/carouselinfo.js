@@ -12,6 +12,11 @@ router.get('/', async function (req, res, next) {
 
   let data = await coll.aggregate([
     {
+      $match:{
+        specialization:{$ne:""}
+      }
+    },
+    {
       $group:{
         _id:"$specialization",
         name:{$first:"$username"},

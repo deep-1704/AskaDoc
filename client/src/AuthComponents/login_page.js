@@ -1,12 +1,14 @@
 import Navbar from "../NavComponents/Navbar";
-import styles from  "./loginStyle.module.css";
+import styles from "./loginStyle.module.css";
 import illus from "../assets/images/miscellaneous/Login-bro.svg";
 import pCheck from "../assets/images/miscellaneous/person-blond-hair-svgrepo-com.svg";
 import dCheck from "../assets/images/miscellaneous/health-worker-svgrepo-com.svg";
 import { useState } from "react";
 function Login() {
-    let [user, setUser] = useState(NaN);
-    
+    let [user, setUser] = useState(null);
+    let [username, setUsername] = useState(null);
+    let [password, setPassword] = useState(null);
+
     function handlePClick(e) {
         let e1 = document.getElementById("patientCheckBox");
         let e2 = document.getElementById("doctorCheckBox");
@@ -21,8 +23,41 @@ function Login() {
         e1.style = "background-color: var(--h1)";
         setUser("doctor");
     }
-    function show(){
-        alert(user);
+    async function submit() {
+        if (await isValid(user, username, password)) {
+            alert("Success");
+            let response = await fetch('http://localhost:4000/login', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ username })
+            }).then(res => {
+                return res.json();
+            })
+            localStorage.setItem('accessToken', response.accessToken);
+            window.location.href = "http://localhost:3000/home/catagories";
+        }
+    }
+    async function isValid(user, username, password) {
+        if (!(user && username && password)) {
+            alert("Kindly ensure all fields are properly filled before proceeding.");
+            return false;
+        }
+        if (!(await authorize(user, username, password))) {
+            alert("Incorrect username or password.");
+            return false;
+        }
+        return true;
+    }
+    async function authorize(user, username, password) {
+        return (
+            await fetch('http://localhost:4000/login/authorize', {
+                method: 'POST',
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ "user": user, "username": username, "password": `${password}` })
+            }).then(res => {
+                return res.json();
+            })
+        )
     }
 
     return (
@@ -45,13 +80,13 @@ function Login() {
                         </div>
                         <div className={styles.formField}>
                             <div className={styles.formFieldTitle}>Username</div>
-                            <input type="text" name="Username" className={styles.InputField}/>
+                            <input type="text" name="Username" className={styles.InputField} onChange={(e) => { setUsername(e.target.value) }} />
                         </div>
                         <div className={styles.formField}>
                             <div className={styles.formFieldTitle}>Password</div>
-                            <input type="password" name="Password" className={styles.InputField}/>
+                            <input type="password" name="Password" className={styles.InputField} onChange={(e) => { setPassword(e.target.value) }} />
                         </div>
-                        <div className={styles.submitBtndiv}><button className={styles.submitBtn} onClick={show}>Login</button></div>
+                        <div className={styles.submitBtndiv}><button className={styles.submitBtn} onClick={submit}>Login</button></div>
                     </div>
                     <div className={styles.signinOption}>Don't have an account? <a href="./signup">Signup</a></div>
                 </div>
