@@ -5,7 +5,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const { MongoClient } = require('mongodb');
-const { route } = require('./carouselinfo');
 
 let uri = process.env.MongoConnectionString;
 let router = express.Router();
@@ -38,8 +37,9 @@ router.post('/authorize', async (req, res) => {
 
 router.post('/', (req, res) => {
     let username = req.body.username;
+    let type = req.body.user;
 
-    let accessToken = jwt.sign({username}, process.env.TOKEN_ACCESS_KEY, {expiresIn: '1h'});
+    let accessToken = jwt.sign({username, type}, process.env.TOKEN_ACCESS_KEY, {expiresIn: '1h'});
     console.log({accessToken});
     res.json({accessToken});
 })

@@ -37,7 +37,7 @@ function Signup() {
             let response = await fetch('http://localhost:4000/login', {
                 method: 'POST',
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ username })
+                body: JSON.stringify({ username, user })
             }).then(res => {
                 return res.json();
             })

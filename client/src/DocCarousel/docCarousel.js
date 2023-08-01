@@ -23,7 +23,7 @@ function Doccarousel() {
         <>
             {dataLoaded?(<Carousel show={4.5} slide={2} swiping={true}>
                 {CarContent.map((ele) => {
-                    let profileImage = require(`../assets/images/profileImages/${ele.imgsrc}.jpeg`);
+                    let profileImage = require(`../assets/images/profileImages/${ele.imgsrc}`);
                     return <Docelement imgsrc={profileImage} name={ele.name} spec={ele._id} />
                 })}
             </Carousel>) : <div>Please wait</div>}

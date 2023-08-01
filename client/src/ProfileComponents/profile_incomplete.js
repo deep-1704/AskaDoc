@@ -2,9 +2,69 @@ import styles from "./style.module.css";
 import defaultImg from "../assets/images/miscellaneous/defaultProfile.svg";
 import PhoneInput from 'react-phone-number-input/input';
 import Select from 'react-select';
-import { useState } from "react";
+import { currUserContext } from "./profile";
+import { useContext, useState } from "react";
 
-function SpecOptions() {
+// function SpecOptions() {
+//     const option = [
+//         {
+//             value: 'cardiologist',
+//             label: 'Cardiologist'
+//         },
+//         {
+//             value: 'dermatologist',
+//             label: 'Dermatologist'
+//         },
+//         {
+//             value: 'endocrinologist',
+//             label: 'Endocrinologist'
+//         },
+//         {
+//             value: 'gynecologist',
+//             label: 'Gynecologist'
+//         },
+//         {
+//             value: 'nephrologist',
+//             label: 'Nephrologist'
+//         },
+//         {
+//             value: 'neurologist',
+//             label: 'Neurologist'
+//         },
+//         {
+//             value: 'oncologist',
+//             label: 'Oncologist'
+//         },
+//         {
+//             value: 'orthopedic',
+//             label: 'Orthopedic'
+//         },
+//         {
+//             value: 'pediatric',
+//             label: 'Pediatric'
+//         },
+//         {
+//             value: 'psychiatrist',
+//             label: 'Psychiatrist'
+//         },
+//         {
+//             value: 'urologist',
+//             label: 'Urologist'
+//         },
+//         {
+//             value: 'radiologist',
+//             label: 'Radiologist'
+//         }
+        
+//     ]
+//     const [selectedOption, setSelectedOption] = useState(null);
+
+//     return (
+//         <Select defaultValue={selectedOption} onChange={setSelectedOption} options={option} required/>
+//     )
+// }
+
+function ProfileIncomplete({ username }) {
     const option = [
         {
             value: 'cardiologist',
@@ -56,19 +116,22 @@ function SpecOptions() {
         }
         
     ]
-    const [selectedOption, setSelectedOption] = useState(null);
 
-    return (
-        <Select defaultValue={selectedOption} onChange={setSelectedOption} options={option} required/>
-    )
-}
-
-function ProfileIncomplete({ username }) {
     let [pImage, setpImage] = useState(defaultImg);
-    let [value,setValue] = useState(null);
+    let [phone,setPhone] = useState(null);
+    let [selectedOption, setSelectedOption] = useState(null);
+
+    let currUser = useContext(currUserContext);
+
+    if(!((currUser.type === 'doctor') && (currUser.username === username))){
+        alert("Apologies, but you currently lack the necessary access to view this page.");
+        window.location.href = "http://localhost:3000/home/catagories";
+    }
+
     function updateImage(event) {
         if(event.target.files[0] )setpImage(URL.createObjectURL(event.target.files[0]));
     }
+
     return (
         <>
             <div className={styles.picnamespec}>
@@ -78,15 +141,14 @@ function ProfileIncomplete({ username }) {
                     <div className={styles.spec}></div>
                 </div>
             </div>
-            <form className={styles.profileform}>
+            <form className={styles.profileform} action={"http://localhost:4000/updateProfile/"+username} method="post" enctype="multipart/form-data">
                 <label className={styles.profileinputfields}>
                     Upload Profile Picture<br />
                     <input type="file" name="profilepic" accept="image/*" onChange={updateImage} required/>
                 </label><br />
                 <label className={styles.profileinputfields}>
                     Specialization<br />
-                    {/* <input type="text" name="spec" /> */}
-                    <SpecOptions />
+                    <Select defaultValue={selectedOption} onChange={setSelectedOption} options={option} name="specialization" required/>
                 </label><br />
                 <label className={styles.profileinputfields}>
                     Qualification<br />
@@ -102,13 +164,13 @@ function ProfileIncomplete({ username }) {
                 </label><br />
                 <label className={styles.profileinputfields}>
                     Phone no.<br />
-                    <PhoneInput country="In" onChange={setValue} name="phonenumber" required/>
+                    <PhoneInput country="In" onChange={setPhone} name="phonenumber" required/>
                 </label><br />
                 <label className={styles.profileinputfields}>
                     E-mail<br />
                     <input type="email" name="email" required/>
                 </label>
-                <button style={{ width: "25%", marginTop: "10px" }}>Submit</button>
+                <input type="submit" style={{ width: "25%", marginTop: "10px" }}/>
             </form>
         </>
     );

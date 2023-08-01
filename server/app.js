@@ -7,13 +7,17 @@ const logger = require('morgan');
 const carouselinfoRouter = require('./routes/carouselinfo');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
+const authenticateRouter = require('./routes/authenticate');
+const checkProfileRouter = require('./routes/checkProfile');
+const getProfileRouter = require('./routes/getProfile');
+const updateProfileRouter = require('./routes/updateProfile');
 
 
 const app = express();
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, HEAD");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, authorization");
   next();
 })
 app.use(logger('dev'));
@@ -26,6 +30,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/getCarouselInfo', carouselinfoRouter);
 app.use('/signup',signupRouter);
 app.use('/login',loginRouter);
+app.use('/authenticate',authenticateRouter);
+app.use('/checkProfile',checkProfileRouter);
+app.use('/getProfile',getProfileRouter);
+app.use('/updateProfile',updateProfileRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
