@@ -1,3 +1,30 @@
+
 # AskaDoc
 
 An online platform connecting patients with a wide range of expert doctors for efficient and accessible medical consultations.
+
+- Sign up to create a patient or a doctor account.
+- Select a speciality to generate a list of doctors.
+- Choose any consultant according to your convenience and start chatting.
+
+## Authors
+
+- [Deep Prajapati](https://github.com/deep-1704)
+
+## Tech Stack
+
+**Client:** React, CSS
+
+**Server:** Node, Express
+
+**Authentication:** JWT
+
+**Chatting:** SocketIO
+
+**Database:** MongoDB
+
+## Features
+
+- Authorization and authentication
+- Chatting (Yet to complete)
+- Seperate acccounts for doctors and patients
