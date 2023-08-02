@@ -21,10 +21,13 @@ An online platform connecting patients with a wide range of expert doctors for e
 
 **Chatting:** SocketIO
 
+**Password encryption:** bcryptjs
+
 **Database:** MongoDB
 
 ## Features
 
 - Authorization and authentication
 - Chatting (Yet to complete)
-- Seperate acccounts for doctors and patients
+- Separate accounts for doctors and patients
+- Password encryption
