@@ -23,6 +23,7 @@ router.post('/', async (req, res, next) => {
         languages: "",
         tel: 0,
         email: "",
+        fees:0,
         reputation: 0
     }:{
         username: req.body.username,

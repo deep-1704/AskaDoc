@@ -38,7 +38,8 @@ router.post('/:username', upload.single('profilepic'), async (req, res) => {
         experience : req.body.experience,
         languages : req.body.languages,
         tel : req.body.phonenumber,
-        email : req.body.email
+        email : req.body.email,
+        fees : req.body.fees
     }});
     res.redirect("http://localhost:3000/home/catagories");
 })

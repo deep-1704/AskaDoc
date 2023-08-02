@@ -4,7 +4,6 @@ import styles from "./style.module.css";
 import { useParams } from "react-router-dom";
 import { createContext, useEffect, useState } from "react";
 
-// let currUserContext = createContext();
 
 function Profile() {
     const { username } = useParams();

@@ -48,6 +48,12 @@ li{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: 0.5s;
+}
+.cardContainer:hover{
+    transition: 0.5s;
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .cardImg {

@@ -10,8 +10,6 @@ function Doccarousel() {
             .then(response => {
                 return response.json();
             }).then(data => {
-                // console.log(data);
-                // return data;
                 setCarContent(data);
                 setDataLoaded(true);
             })

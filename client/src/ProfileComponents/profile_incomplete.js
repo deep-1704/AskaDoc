@@ -170,6 +170,10 @@ function ProfileIncomplete({ username }) {
                     E-mail<br />
                     <input type="email" name="email" required/>
                 </label>
+                <label className={styles.profileinputfields}>
+                    Your charges (per consult)<br />
+                    <input type="number" name="fees" required/>
+                </label>
                 <input type="submit" style={{ width: "25%", marginTop: "10px" }}/>
             </form>
         </>

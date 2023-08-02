@@ -29,52 +29,53 @@ function SortOptions({ setSortBasis }) {
 
 
 function CategoryList() {
-    const category = useParams();
-    let arr = [
-        {
-            Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
-            name: "Deep Prajapati",
-            spec: "Psychologist",
-            fees: 1500,
-            rep: 1000000
-        },
-        {
-            Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
-            name: "Deep Prajapati",
-            spec: "Psychologist",
-            fees: 200,
-            rep: 20000
-        },
-        {
-            Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
-            name: "Deep Prajapati",
-            spec: "Psychologist",
-            fees: 2000,
-            rep: 20003240
-        },
-        {
-            Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
-            name: "Deep Prajapati",
-            spec: "Psychologist",
-            fees: 1000,
-            rep: 2000200
-        },
-        {
-            Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
-            name: "Deep Prajapati",
-            spec: "Psychologist",
-            fees: 1500,
-            rep: 2000000
-        },
-        {
-            Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
-            name: "Deep Prajapati",
-            spec: "Psychologist",
-            fees: 1500,
-            rep: 2000000
-        },
-    ]
-    let [finalArr, setFinalArr] = useState(arr);
+    const category = useParams().category.toLowerCase();
+    // let arr = [
+    //     {
+    //         Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
+    //         name: "Deep Prajapati",
+    //         spec: "Psychologist",
+    //         fees: 1500,
+    //         rep: 1000000
+    //     },
+    //     {
+    //         Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
+    //         name: "Deep Prajapati",
+    //         spec: "Psychologist",
+    //         fees: 200,
+    //         rep: 20000
+    //     },
+    //     {
+    //         Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
+    //         name: "Deep Prajapati",
+    //         spec: "Psychologist",
+    //         fees: 2000,
+    //         rep: 20003240
+    //     },
+    //     {
+    //         Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
+    //         name: "Deep Prajapati",
+    //         spec: "Psychologist",
+    //         fees: 1000,
+    //         rep: 2000200
+    //     },
+    //     {
+    //         Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
+    //         name: "Deep Prajapati",
+    //         spec: "Psychologist",
+    //         fees: 1500,
+    //         rep: 2000000
+    //     },
+    //     {
+    //         Pimgsrc: require("../assets/images/deep_icpc_1.jpeg"),
+    //         name: "Deep Prajapati",
+    //         spec: "Psychologist",
+    //         fees: 1500,
+    //         rep: 2000000
+    //     },
+    // ]
+    let [finalArr, setFinalArr] = useState([]);
+    let [dataLoaded, setDataLoaded] = useState(false);
     let [sortBasis, setSortBasis] = useState('rep');
 
     useEffect(() => {
@@ -86,20 +87,36 @@ function CategoryList() {
         }
         else {
             arr2.sort((a, b) => {
-                return (b.rep - a.rep);
+                return (b.reputation - a.reputation);
             })
         }
         setFinalArr(arr2);
     }, [sortBasis])
 
+    let fetchData = () => {
+        fetch(`http://localhost:4000/fetchList/${category}`)
+            .then(response => {
+                return response.json();
+            }).then(data => {
+                setFinalArr(data);
+                setDataLoaded(true);
+            })
+    }
+    useEffect(()=>{
+        fetchData();
+    },[])   
+
     return (
         <>
-            <SortOptions setSortBasis={setSortBasis} />
-            <ul className={styles.renderlist}>
-                {finalArr.map(val => {
-                    return <li><CatListItem Pimgsrc={val.Pimgsrc} name={val.name} spec={val.spec} fees={val.fees} rep={val.rep} /></li>
-                })}
-            </ul>
+            {dataLoaded ? (<>
+                <SortOptions setSortBasis={setSortBasis} />
+                <ul className={styles.renderlist}>
+                    {finalArr.map(val => {
+                        let img = require(`../assets/images/profileImages/${val.ProfileImg}`);
+                        return <li><CatListItem Pimgsrc={img} name={val.username} spec={val.specialization} fees={val.fees} rep={val.reputation} /></li>
+                    })}
+                </ul>
+            </>) : <h1 style={{ color: 'var(--st)' }}>Please wait!</h1>}
         </>
     );
 }

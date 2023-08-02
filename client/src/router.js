@@ -15,8 +15,8 @@ function Router() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/home" element={<Homepage />}>
                 <Route index element={<h1 style={{color:"#65CCB8", margin:"auto",width:"fit-content"}}>Page not found</h1>} />
-                <Route path="catagories" element={<CatagorySec />} />
-                <Route path="catagories/:catagory" element={<CategoryList />} />
+                <Route path="categories" element={<CatagorySec />} />
+                <Route path="categories/:category" element={<CategoryList />} />
             </Route>
             <Route path="/profile/:username" element={<Profile />} />
             {/* Not found page :: */}

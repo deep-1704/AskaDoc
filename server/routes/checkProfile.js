@@ -25,7 +25,7 @@ router.get('/:username', async (req, res) => {
         }
     }
     else{
-        res.send('Invalid');
+        res.json('Invalid');
     }
 })
 

@@ -11,6 +11,7 @@ const authenticateRouter = require('./routes/authenticate');
 const checkProfileRouter = require('./routes/checkProfile');
 const getProfileRouter = require('./routes/getProfile');
 const updateProfileRouter = require('./routes/updateProfile');
+const fetchListRouter = require('./routes/fetchList');
 
 
 const app = express();
@@ -34,6 +35,7 @@ app.use('/authenticate',authenticateRouter);
 app.use('/checkProfile',checkProfileRouter);
 app.use('/getProfile',getProfileRouter);
 app.use('/updateProfile',updateProfileRouter);
+app.use('/fetchList',fetchListRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
