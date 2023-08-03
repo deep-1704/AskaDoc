@@ -11,7 +11,7 @@ function ProfileSec({ username }) {
         console.log(state);
         if (state === "Invalid") {
             alert('Invalid request');
-            window.location.href = "http://localhost:3000/home/catagories";
+            window.location.href = "http://localhost:3000/home/categories";
         }
         setIsComplete(state);
         setCheckDone(true);

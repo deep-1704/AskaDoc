@@ -42,7 +42,7 @@ function Signup() {
                 return res.json();
             })
             localStorage.setItem('accessToken', response.accessToken);
-            window.location.href = "http://localhost:3000/home/catagories";
+            window.location.href = "http://localhost:3000/home/categories";
         }
     }
     async function isValid(user, username, password) {

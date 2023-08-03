@@ -5,65 +5,6 @@ import Select from 'react-select';
 import { currUserContext } from "./profile";
 import { useContext, useState } from "react";
 
-// function SpecOptions() {
-//     const option = [
-//         {
-//             value: 'cardiologist',
-//             label: 'Cardiologist'
-//         },
-//         {
-//             value: 'dermatologist',
-//             label: 'Dermatologist'
-//         },
-//         {
-//             value: 'endocrinologist',
-//             label: 'Endocrinologist'
-//         },
-//         {
-//             value: 'gynecologist',
-//             label: 'Gynecologist'
-//         },
-//         {
-//             value: 'nephrologist',
-//             label: 'Nephrologist'
-//         },
-//         {
-//             value: 'neurologist',
-//             label: 'Neurologist'
-//         },
-//         {
-//             value: 'oncologist',
-//             label: 'Oncologist'
-//         },
-//         {
-//             value: 'orthopedic',
-//             label: 'Orthopedic'
-//         },
-//         {
-//             value: 'pediatric',
-//             label: 'Pediatric'
-//         },
-//         {
-//             value: 'psychiatrist',
-//             label: 'Psychiatrist'
-//         },
-//         {
-//             value: 'urologist',
-//             label: 'Urologist'
-//         },
-//         {
-//             value: 'radiologist',
-//             label: 'Radiologist'
-//         }
-        
-//     ]
-//     const [selectedOption, setSelectedOption] = useState(null);
-
-//     return (
-//         <Select defaultValue={selectedOption} onChange={setSelectedOption} options={option} required/>
-//     )
-// }
-
 function ProfileIncomplete({ username }) {
     const option = [
         {
@@ -125,7 +66,7 @@ function ProfileIncomplete({ username }) {
 
     if(!((currUser.type === 'doctor') && (currUser.username === username))){
         alert("Apologies, but you currently lack the necessary access to view this page.");
-        window.location.href = "http://localhost:3000/home/catagories";
+        window.location.href = "http://localhost:3000/home/categories";
     }
 
     function updateImage(event) {
