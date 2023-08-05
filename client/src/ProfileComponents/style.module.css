@@ -24,10 +24,11 @@ body {
 }
 .profilechatcontainer{
     display: flex;
+    height: fit-content;
     background-color: var(--h1);
 }
 .profileseccontainer{
-    width: 575px;
+    width: 37%;
     border-right: 1px solid black;
     margin-top: 10px;
 }

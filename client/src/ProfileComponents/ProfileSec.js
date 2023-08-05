@@ -7,7 +7,7 @@ function ProfileSec({ username }) {
     let [checkDone, setCheckDone] = useState(false);
 
     async function checkProfile(username) {
-        let state = await fetch(`http://localhost:4000/checkProfile/${username}`, { method: 'GET' }).then(res=> res.json());
+        let state = await fetch(`http://localhost:4000/checkProfile/${username}`, { method: 'GET' }).then(res => res.json());
         console.log(state);
         if (state === "Invalid") {
             alert('Invalid request');
