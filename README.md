@@ -27,7 +27,7 @@ An online platform connecting patients with a wide range of expert doctors for e
 ## Features
 
 - Authorization and authentication
-- Chatting (Yet to complete)
+- Chatting
 - Separate accounts for doctors and patients
 - Password encryption
 
