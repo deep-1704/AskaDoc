@@ -1,8 +1,7 @@
 import Navbar from "../NavComponents/Navbar";
 import ProfileSec from "./ProfileSec";
 import styles from "./style.module.css";
-import ChatSection from "../ChatComponents/ChatSection";
-import { useParams } from "react-router-dom";
+import { Outlet, useParams } from "react-router-dom";
 import { createContext, useEffect, useState } from "react";
 
 
@@ -49,7 +48,7 @@ function Profile() {
                     <Navbar username={currUser.username} />
                     <div className={styles.profilechatcontainer}>
                         <ProfileSec username={username} />
-                        <ChatSection />
+                        <Outlet />
                     </div>
                 </currUserContext.Provider>
             </>) : <h1 style={{ color: 'var(--st)' }}>Please wait!</h1>}

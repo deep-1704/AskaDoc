@@ -6,6 +6,8 @@ import Homepage from "./HomepageComponents/Hompage";
 import Profile from "./ProfileComponents/profile";
 import CatagorySec from "./HomepageComponents/CatagorySec";
 import CategoryList from "./HomepageComponents/CategoryList";
+import SenderList from "./ChatComponents/SenderList";
+import MessagePanel from "./ChatComponents/MessagePanel";
 
 function Router() {
     return (
@@ -14,13 +16,16 @@ function Router() {
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/home" element={<Homepage />}>
-                <Route index element={<h1 style={{color:"#65CCB8", margin:"auto",width:"fit-content"}}>Page not found</h1>} />
+                <Route index element={<h1 style={{ color: "#65CCB8", margin: "auto", width: "fit-content" }}>Page not found</h1>} />
                 <Route path="categories" element={<CatagorySec />} />
                 <Route path="categories/:category" element={<CategoryList />} />
             </Route>
-            <Route path="/profile/:username" element={<Profile />} />
+            <Route path="/profile/:username" element={<Profile />} >
+                <Route index element={<SenderList />} />
+                <Route path="chatWith" element={<MessagePanel />} />
+            </Route>
             {/* Not found page :: */}
-            <Route path="*" element={<h1 style={{color:"#65CCB8", margin:"auto",width:"fit-content"}}>Page not found</h1>} />
+            <Route path="*" element={<h1 style={{ color: "#65CCB8", margin: "auto", width: "fit-content" }}>Page not found</h1>} />
         </Routes>
     );
 }

@@ -21,6 +21,56 @@ app.set('port', port);
 
 const server = http.createServer(app);
 
+// Chat handler
+const io = require('socket.io')(server, {
+  cors: {
+    origin: "http://localhost:3000",
+  },
+})
+
+io.use((socket, next) => {
+  let username = socket.handshake.auth.username;
+  socket.username = username;
+  socket.to = socket.handshake.auth.to;
+  next();
+})
+
+io.on('connection', (socket) => {
+  let users = [];
+  for (let [id, socket] of io.of("/").sockets) {
+    if (socket.username) {
+      users.push({
+        userID: id,
+        username: socket.username,
+        to: socket.to
+      });
+    }
+  }
+  // console.log(users);
+
+  socket.on('doctorConnected', ({ username, id }) => {
+    let arr = users.filter((val) => {
+      return (val.to === username)
+    }).map(val => val.username);
+
+    socket.emit("senderList", {
+      arr,
+      username
+    });
+  })
+
+  socket.on('messageSent', ({ senderUsername, message, reciever }) => {
+    console.log(users);
+    for (let user of users) {
+      if (user.username === reciever) {
+        socket.broadcast.emit('messageRecieved', { SenderUsername:senderUsername, message, reciever });
+        break;
+      }
+    }
+  })
+
+})
+
 /**
  * Listen on provided port, on all network interfaces.
  */

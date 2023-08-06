@@ -13,7 +13,6 @@ function ProfileComplete({ username }) {
     let [doctor, setDoctor] = useState({});
 
     async function fetchInfo() {
-        console.log(username);
         let info = await fetch(`http://localhost:4000/getProfile/${username}`, {
             method:'GET',
             headers: { "Content-Type": "application/json" }
@@ -21,7 +20,6 @@ function ProfileComplete({ username }) {
         .then(res =>{
             return res.json();
         })
-        console.log(info);
         setDoctor(info);
         setDataArrived(true);
     }

@@ -3,7 +3,7 @@ import heart from "../assets/images/miscellaneous/heart-svgrepo-com.svg"
 
 function CatListItem({ Pimgsrc, name, spec, fees, rep }) {
     return (
-        <div className={styles.categorylistitem} onClick={() => window.location.href = `http://localhost:3000/profile/${name}`}>
+        <div className={styles.categorylistitem} onClick={() => window.location.href = `http://localhost:3000/profile/${name}/chatWith?username=${name}`}>
             <div className={styles.profilenamespec}>
                 <div className={styles.profileimg} style={{backgroundImage:`url(${Pimgsrc})`,backgroundSize:"cover"}}></div>
                 <div className={styles.namespec}>

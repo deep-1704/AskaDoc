@@ -1,7 +1,8 @@
+require('dotenv').config();
+
 let express = require('express');
 let bcrypt = require('bcryptjs');
 let { MongoClient } = require('mongodb');
-require('dotenv').config();
 
 let uri = process.env.MongoConnectionString;
 let router = express.Router();
@@ -35,10 +36,12 @@ router.post('/', async (req, res, next) => {
 
 router.post('/checkDuplicate', async (req, res, next) => {
     let database = client.db('users');
-    let coll = database.collection(`${req.body.user}s`);
+    let coll1 = database.collection('patients');
+    let coll2 = database.collection('doctors');
 
-    let user = await coll.findOne({ username: (req.body.username) });
-    if (user != null) {
+    let user1 = await coll1.findOne({ username: (req.body.username) });
+    let user2 = await coll2.findOne({ username: (req.body.username) });
+    if ((user1 !== null) || (user2 !== null)) {
         res.send(true);
     }
     else {

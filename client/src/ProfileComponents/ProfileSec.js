@@ -8,7 +8,6 @@ function ProfileSec({ username }) {
 
     async function checkProfile(username) {
         let state = await fetch(`http://localhost:4000/checkProfile/${username}`, { method: 'GET' }).then(res => res.json());
-        console.log(state);
         if (state === "Invalid") {
             alert('Invalid request');
             window.location.href = "http://localhost:3000/home/categories";

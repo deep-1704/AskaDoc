@@ -1,49 +1,58 @@
 import styles from './style.module.css';
+import samplePic from '../assets/images/miscellaneous/defaultProfile.svg';
+import socket from './socket';
+import { useContext, useState, useEffect } from 'react';
+import { useSearchParams } from "react-router-dom";
+import { currUserContext } from '../ProfileComponents/profile';
 
-function MessagePanel({ senderPic, senderUsername }) {
+function MessagePanel() {
+    let [searchParams, setSearchParams] = useSearchParams();
+    let [chats, setChats] = useState([]);
+    let [message, setMessage] = useState("");
 
-    function showBottom(e){
-        let body = e.target;
-        body.scrollTop = body.scrollHeight - body.clientHeight;
-        console.log('Reach');
+    let currUser = useContext(currUserContext);
+    let senderUsername = searchParams.get('username');
+
+    if (currUser.username === senderUsername) {
+        window.location.href = `http://localhost:3000/profile/${currUser.username}`;
     }
+
+    socket.auth = { username: currUser.username, to: senderUsername }
+    socket.connect();
+    socket.on('messageRecieved', ({ SenderUsername, message, reciever }) => {
+        console.log(currUser.username);
+        if ((SenderUsername === senderUsername) && (reciever === currUser.username)) {
+            console.log([SenderUsername, message, reciever]);
+            let arr = chats.map(val => val);
+            arr.push(<SenderMessageObj username={SenderUsername} content={message} key={Math.floor(Math.random() * 100000)} />);
+            setChats(arr);
+        }
+    })
+
+    function sendMessage() {
+        if (message !== "") {
+            let arr = chats.map(val => val);
+            arr.push(<UserMessageObj content={message} key={Math.floor(Math.random() * 100000)} />);
+            socket.emit('messageSent', { senderUsername: currUser.username, message, reciever: senderUsername });
+            setChats(arr);
+        }
+    }
+
+
     return (
-        <>
+        <div className={styles.ChatSectionContainer}>
             <div className={styles.senderInfo}>
-                <div className={styles.senderDP} style={{ backgroundImage: `url(${senderPic})`, backgroundSize: "cover" }}></div>
+                <div className={styles.senderDP} style={{ backgroundImage: `url(${samplePic})`, backgroundSize: "cover" }}></div>
                 <div className={styles.senderUsername}>{senderUsername}</div>
             </div>
-            <div className={styles.MessageContainer} onChange={(e) => showBottom(e)} onAfterPrint={(e) => showBottom(e)}>
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
-                <SenderMessageObj username='Deep1' content='Hii there! How are you' />
-                <UserMessageObj content="I'm fine. How about you!" />
+            <div className={styles.MessageContainer}>
+                {chats}
             </div>
-            <form className={styles.MessageForm}>
-                <input type='text' className={styles.MessageInput} placeholder='Message..' />
-                <button type='submit' className={styles.MessageSendBtn}>Send</button>
-            </form>
-        </>
+            <div className={styles.MessageForm}>
+                <input type='text' className={styles.MessageInput} placeholder='Message..' onChange={(e) => setMessage(e.target.value)} />
+                <button type='submit' className={styles.MessageSendBtn} onClick={sendMessage}>Send</button>
+            </div>
+        </div>
     );
 }
 
