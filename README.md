@@ -1,4 +1,3 @@
-
 # AskaDoc
 
 An online platform connecting patients with a wide range of expert doctors for efficient and accessible medical consultations.
@@ -31,3 +30,5 @@ An online platform connecting patients with a wide range of expert doctors for e
 - Chatting (Yet to complete)
 - Separate accounts for doctors and patients
 - Password encryption
+
+> **Your feedback regarding any potential bugs or opportunities for improvement would be greatly appreciated.**
