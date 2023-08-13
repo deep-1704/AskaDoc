@@ -41,7 +41,7 @@ router.post('/:username', upload.single('profilepic'), async (req, res) => {
         email : req.body.email,
         fees : req.body.fees
     }});
-    res.redirect("http://localhost:3000/home/catagories");
+    res.redirect("http://localhost:3000/home/categories");
 })
 
 module.exports = router;
