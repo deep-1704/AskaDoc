@@ -35,10 +35,10 @@ io.use((socket, next) => {
   next();
 })
 
+let users = [];
 io.on('connection', (socket) => {
-  let users = [];
   for (let [id, socket] of io.of("/").sockets) {
-    if (socket.username) {
+    if ((socket.username)&&(!(users.find(user =>  user.username === socket.username)))) {
       users.push({
         userID: id,
         username: socket.username,
@@ -69,6 +69,12 @@ io.on('connection', (socket) => {
     }
   })
 
+  socket.on('disconnect', () => {
+    let idx = users.indexOf(users.find(user =>  user.username === socket.username));
+    if(idx > -1){
+      users.splice(idx,1);
+    }
+  })
 })
 
 /**
