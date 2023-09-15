@@ -38,6 +38,10 @@ function MessagePanel() {
         }
     }
 
+    function preventReload(e) {
+        e.preventDefault();
+        document.getElementById("MessageInputField").reset();
+    }
 
     return (
         <div className={styles.ChatSectionContainer}>
@@ -48,10 +52,12 @@ function MessagePanel() {
             <div className={styles.MessageContainer}>
                 {chats}
             </div>
-            <div className={styles.MessageForm}>
-                <input type='text' className={styles.MessageInput} placeholder='Message..' onChange={(e) => setMessage(e.target.value)} />
-                <button type='submit' className={styles.MessageSendBtn} onClick={sendMessage}>Send</button>
-            </div>
+            <form onSubmit={(e) => preventReload(e)} id='MessageInputField'>
+                <div className={styles.MessageForm}>
+                    <input type='text' className={styles.MessageInput} placeholder='Message..' onChange={(e) => setMessage(e.target.value)} />
+                    <button type='submit' className={styles.MessageSendBtn} onClick={sendMessage}>Send</button>
+                </div>
+            </form>
         </div>
     );
 }
