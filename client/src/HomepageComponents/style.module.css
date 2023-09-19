@@ -117,9 +117,8 @@ li{
 }
 .profilenamespec{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 185px;
+    gap: 20px;
+    width: 220px;
 }
 @media screen and (max-width: 400px){
     .profile-name-spec{
