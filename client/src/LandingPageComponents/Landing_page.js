@@ -1,8 +1,8 @@
-import styles from  './Landing_page.module.css';
+import styles from './Landing_page.module.css';
 import Navbar from '../NavComponents/Navbar';
 import Doccarousel from '../DocCarousel/docCarousel';
 import Docelement from '../DocCarousel/docelement';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import img1 from "../assets/images/miscellaneous/online-medical-consultation-male-svgrepo-com.svg";
 import step1img from "../assets/images/miscellaneous/account-svgrepo-com.svg";
 import step2img from "../assets/images/miscellaneous/doctor-svgrepo-com.svg";
@@ -10,18 +10,41 @@ import step3img from "../assets/images/miscellaneous/chat-round-dots-svgrepo-com
 import arrowRight from "../assets/images/miscellaneous/arrow-right-svgrepo-com.svg";
 
 function LP() {
-  // useEffect(() => {
-  //   let leftBtn = document.getElementsByClassName("styles-module_carousel-base__3keqD")[0].children[0].children[0];
-  //   let rightBtn = document.getElementsByClassName("styles-module_carousel-base__3keqD")[0].children[2].children[0];
+  let [user,setUser] = useState(null);
+  async function authenticate() {
+    let accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      let permission = await fetch('http://localhost:4000/authenticate', {
+        method: 'GET',
+        headers: {
+          'authorization': `Bearer ${accessToken}`,
+          'Content-Type': "application/json"
+        }
+      }).then(response => {
+        return response.json();
+      });
 
-  //   leftBtn.innerHTML = "<";
-  //   rightBtn.innerHTML = ">";
-  //   leftBtn.classList.add("carouselMoveBtn");
-  //   rightBtn.classList.add("carouselMoveBtn");
-  // }, [])
+      if (permission) {
+        // alert("Please login to continue.");
+        // window.location.href = 'http://localhost:3000/login';
+        setUser(permission.username);
+      }
+      // else {
+      //   // setIsAuthenticated(true);
+      // }
+    }
+    // else {
+    //   alert('Please Login to continue!');
+    //   window.location.href = 'http://localhost:3000/login';
+    // }
+  }
+
+  useEffect(() => {
+    authenticate();
+  }, [])
   return (
     <>
-      <Navbar />
+      <Navbar username={user}/>
       <div className={styles.quote}><strong>Quality healthcare at your fingertips</strong></div>
       <Doccarousel />
       <div className={styles.introillus}>
@@ -47,9 +70,9 @@ function LP() {
         <div className={styles.processtitle}>How it works</div>
         <div className={styles.steps}>
           <Docelement imgsrc={step1img} name="Signup and create an account" spec="" />
-          <img src={arrowRight} alt='arrow' style={{width:"10%"}}/>
+          <img src={arrowRight} alt='arrow' style={{ width: "10%" }} />
           <Docelement imgsrc={step2img} name="Choose a Counselor by category or search for it" spec="" />
-          <img src={arrowRight} alt='arrow'  style={{width:"10%"}}/>
+          <img src={arrowRight} alt='arrow' style={{ width: "10%" }} />
           <Docelement imgsrc={step3img} name="Familiarise with the profile and start chatting." spec="" />
         </div>
       </div>
