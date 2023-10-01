@@ -82,7 +82,7 @@ function ProfileIncomplete({ username }) {
                     <div className={styles.spec}></div>
                 </div>
             </div>
-            <form className={styles.profileform} action={"http://localhost:4000/updateProfile/"+username} method="post" enctype="multipart/form-data">
+            <form className={styles.profileform} action={"http://localhost:4000/accounts/"+username} method="post" enctype="multipart/form-data">
                 <label className={styles.profileinputfields}>
                     Upload Profile Picture<br />
                     <input type="file" name="profilepic" accept="image/*" onChange={updateImage} required/>

@@ -9,7 +9,6 @@ const carouselinfoRouter = require('./routes/carouselinfo');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const authenticateRouter = require('./routes/authenticate');
-const updateProfileRouter = require('./routes/updateProfile');
 const fetchListRouter = require('./routes/fetchList');
 
 
@@ -33,7 +32,6 @@ app.use('/getCarouselInfo', carouselinfoRouter);
 app.use('/signup',signupRouter);
 app.use('/login',loginRouter);
 app.use('/authenticate',authenticateRouter);
-app.use('/updateProfile',updateProfileRouter);
 app.use('/fetchList',fetchListRouter);
 
 // catch 404 and forward to error handler
