@@ -23,9 +23,6 @@ body {
     background-color: var(--bg);
     margin: 0px;
 }
-ul{
-    list-style: none;
-}
 li{
     width: 100%;
 }
@@ -89,6 +86,7 @@ li{
 .renderlist{
     padding-left: 3%;
     padding-right: 3%;
+    list-style-type: none !important;
 }
 .categorylistitem{
     width: 100%;

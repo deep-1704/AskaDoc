@@ -17,6 +17,9 @@ router.get('/', async function (req, res, next) {
       }
     },
     {
+      $sort:{reputation : -1}
+    },
+    {
       $group:{
         _id:"$specialization",
         name:{$first:"$username"},
