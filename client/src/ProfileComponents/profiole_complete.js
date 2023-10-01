@@ -9,55 +9,37 @@ import Whiteheart_icon from "../assets/images/miscellaneous/Whiteheart-svgrepo-c
 import Redheart_icon from "../assets/images/miscellaneous/Redheart-svgrepo-com.svg";
 import { useEffect, useState } from "react";
 
-function ProfileComplete({ username }) {
+function ProfileComplete({ userData }) {
 
-    let [dataArrived, setDataArrived] = useState(false);
     let [heart, setHeart] = useState(Whiteheart_icon);
-    let [doctor, setDoctor] = useState({});
+    console.log(userData);
 
     function handleLike(e) {
         if (heart === Whiteheart_icon) {
             setHeart(Redheart_icon);
         }
-        else{
+        else {
             setHeart(Whiteheart_icon);
         }
     }
 
-    async function fetchInfo() {
-        let info = await fetch(`http://localhost:4000/getProfile/${username}`, {
-            method: 'GET',
-            headers: { "Content-Type": "application/json" }
-        })
-            .then(res => {
-                return res.json();
-            })
-        setDoctor(info);
-        setDataArrived(true);
-    }
-    useEffect(() => {
-        fetchInfo()
-    }, [])
-
     return (
         <>
-            {dataArrived ? (<>
-                <div className={styles.picnamespec}>
-                    <div className={styles.pic}><img src={require(`../assets/images/profileImages/${doctor.ProfileImg}`)} alt={doctor.username} style={{ height: "100%" }} /></div>
-                    <div className={styles.namespec}>
-                        <div className={styles.name}>{doctor.username}</div>
-                        <div className={styles.spec}>{doctor.specialization}</div>
-                        <button className={styles.likeBtn} onClick={(e) => handleLike(e)}><span>Repute </span><img src={heart} alt="Heart" style={{ width: "25px" }} /></button>
-                    </div>
+            <div className={styles.picnamespec}>
+                <div className={styles.pic}><img src={require(`../assets/images/profileImages/${userData.ProfileImg}`)} alt={userData.username} style={{ height: "100%" }} /></div>
+                <div className={styles.namespec}>
+                    <div className={styles.name}>{userData.username}</div>
+                    <div className={styles.spec}>{userData.specialization}</div>
+                    <button className={styles.likeBtn} onClick={(e) => handleLike(e)}><span>Repute </span><img src={heart} alt="Heart" style={{ width: "25px" }} /></button>
                 </div>
-                <div className={styles.profiletitle}>Profile</div>
-                <DoctorSpec field="Qualification" icon={qualification_icon} value={doctor.qualification} />
-                <DoctorSpec field="Experience" icon={experience_icon} value={doctor.experience + " years"} />
-                <DoctorSpec field="Languages" icon={language_icon} value={doctor.languages} />
-                <div className={styles.profiletitle}>Contact</div>
-                <DoctorSpec field="Phone" icon={phone_icon} value={doctor.tel} />
-                <DoctorSpec field="E-mail" icon={email_icon} value={doctor.email} />
-            </>) : <h1 style={{ color: 'var(--st)' }}>Please wait!</h1>}
+            </div>
+            <div className={styles.profiletitle}>Profile</div>
+            <DoctorSpec field="Qualification" icon={qualification_icon} value={userData.qualification} />
+            <DoctorSpec field="Experience" icon={experience_icon} value={userData.experience + " years"} />
+            <DoctorSpec field="Languages" icon={language_icon} value={userData.languages} />
+            <div className={styles.profiletitle}>Contact</div>
+            <DoctorSpec field="Phone" icon={phone_icon} value={userData.tel} />
+            <DoctorSpec field="E-mail" icon={email_icon} value={userData.email} />
         </>
     );
 }

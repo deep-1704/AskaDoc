@@ -24,7 +24,7 @@ function Router() {
                 <Route index element={<SenderList />} />
                 <Route path="chatWith" element={<MessagePanel />} />
             </Route>
-            {/* Not found page :: */}
+            {/* Page not found :: */}
             <Route path="*" element={<h1 style={{ color: "#65CCB8", margin: "auto", width: "fit-content" }}>Page not found</h1>} />
         </Routes>
     );

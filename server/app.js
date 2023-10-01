@@ -4,12 +4,11 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const accountsRouter = require('./routes/accounts');
 const carouselinfoRouter = require('./routes/carouselinfo');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const authenticateRouter = require('./routes/authenticate');
-const checkProfileRouter = require('./routes/checkProfile');
-const getProfileRouter = require('./routes/getProfile');
 const updateProfileRouter = require('./routes/updateProfile');
 const fetchListRouter = require('./routes/fetchList');
 
@@ -28,12 +27,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
+
+app.use('/accounts',accountsRouter);
 app.use('/getCarouselInfo', carouselinfoRouter);
 app.use('/signup',signupRouter);
 app.use('/login',loginRouter);
 app.use('/authenticate',authenticateRouter);
-app.use('/checkProfile',checkProfileRouter);
-app.use('/getProfile',getProfileRouter);
 app.use('/updateProfile',updateProfileRouter);
 app.use('/fetchList',fetchListRouter);
 
