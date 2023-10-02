@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const accountsRouter = require('./routes/accounts');
-const carouselinfoRouter = require('./routes/carouselinfo');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const authenticateRouter = require('./routes/authenticate');
@@ -27,7 +26,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 
 app.use('/accounts',accountsRouter);
-app.use('/getCarouselInfo', carouselinfoRouter);
 app.use('/signup',signupRouter);
 app.use('/login',loginRouter);
 app.use('/authenticate',authenticateRouter);
