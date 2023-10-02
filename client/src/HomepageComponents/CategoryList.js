@@ -94,7 +94,7 @@ function CategoryList() {
     }, [sortBasis])
 
     let fetchData = () => {
-        fetch(`http://localhost:4000/fetchList/${category}`)
+        fetch(`http://localhost:4000/accounts/specialization/${category}`)
             .then(response => {
                 return response.json();
             }).then(data => {

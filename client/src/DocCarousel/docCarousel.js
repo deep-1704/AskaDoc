@@ -6,10 +6,11 @@ function Doccarousel() {
     let [CarContent, setCarContent] = useState([]);
     let [dataLoaded, setDataLoaded] = useState(false);
     let fetchData = () => {
-        fetch("http://localhost:4000/getCarouselInfo")
+        fetch("http://localhost:4000/accounts/GToE",{method:'GET'})
             .then(response => {
                 return response.json();
             }).then(data => {
+                console.log(data);
                 setCarContent(data);
                 setDataLoaded(true);
             })

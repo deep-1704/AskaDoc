@@ -25,18 +25,9 @@ function LP() {
       });
 
       if (permission) {
-        // alert("Please login to continue.");
-        // window.location.href = 'http://localhost:3000/login';
         setUser(permission.username);
       }
-      // else {
-      //   // setIsAuthenticated(true);
-      // }
     }
-    // else {
-    //   alert('Please Login to continue!');
-    //   window.location.href = 'http://localhost:3000/login';
-    // }
   }
 
   useEffect(() => {
