@@ -26,14 +26,16 @@ An online platform connecting patients with a wide range of expert doctors for e
 
 ## Features
 
-- Authorization and authentication
-- Chatting
-- Separate accounts for doctors and patients
-- Password encryption
+- Implemented RESTful API endpoints for data communication.
+- Implemented JWT Authentication.
+- Implemented user-roles(Doctor and patient) for differentiated access.
+- Implemented one to one chat functionality.
+- Salting and hashing techniques to protect password data.
 
 # Take a tour
 
 ## Home-page
+
 Gives a brief overview of the application and path to login and signup.
 
 ![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/hp1.png?raw=true)
@@ -41,14 +43,17 @@ Gives a brief overview of the application and path to login and signup.
 ![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/hp2.png?raw=true)
 
 ## Signup
+
 - Choose patient or doctor.
 - Enter username and password and press signup to create an account.
-![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/Signup.png?raw=true)
+  ![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/Signup.png?raw=true)
 
 ## Login
+
 ![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/Login.png?raw=true)
 
 ## Categories
+
 Choose any one of the 12 categories as per your convenience.
 
 ![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/Categories2.png?raw=true)
@@ -56,6 +61,7 @@ Choose any one of the 12 categories as per your convenience.
 ![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/Categories1.png?raw=true)
 
 ## List of doctors
+
 - Choose your consultant.
 - You can sort by reputation or fees.
 - Choose one to view profile and start chatting.
@@ -63,11 +69,13 @@ Choose any one of the 12 categories as per your convenience.
 ![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/DoctorList.png?raw=true)
 
 ## Profile
+
 (Note: Only doctors are allowed have their own profile.)
-- Add other fields if you are signing up for the first time. 
-![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/incompleteProfile.png?raw=true)
+
+- Add other fields if you are signing up for the first time.
+  ![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/incompleteProfile.png?raw=true)
 - If added already, you will see your complete profile along with the message requests.
-![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/DocProfile.png?raw=true)
+  ![App Screenshot](https://github.com/deep-1704/AskaDoc/blob/master/AskadocSS/DocProfile.png?raw=true)
 
 ## Chats
 
